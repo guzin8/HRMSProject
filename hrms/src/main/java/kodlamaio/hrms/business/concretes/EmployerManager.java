@@ -35,7 +35,7 @@ public class EmployerManager implements EmployerService {
 	@Override
 	public DataResult<List<Employer>> getAll() {
 		
-		return new SuccessDataResult<List<Employer>>("İş verenler listelendi.");
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"İş verenler listelendi.");
 	}
 
 	@Override
