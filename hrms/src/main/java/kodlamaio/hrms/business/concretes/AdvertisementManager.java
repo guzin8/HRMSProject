@@ -13,6 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.AdvertisementDao;
 import kodlamaio.hrms.entities.concretes.Advertisement;
+import kodlamaio.hrms.entities.dtos.AdvertisementDto;
 
 @Service
 public class AdvertisementManager implements AdvertisementService{
@@ -58,6 +59,13 @@ public class AdvertisementManager implements AdvertisementService{
 	    this.advertisementDao.getById(advertisementId).setStatus(false);
 	    this.advertisementDao.save(this.advertisementDao.getById(advertisementId));
 		return new SuccessResult("İş ilanı silindi.");
+	}
+
+
+	@Override
+	public DataResult<List<AdvertisementDto>> getAdvertisementDetails() {
+		
+		return new SuccessDataResult<List<AdvertisementDto>>(this.advertisementDao.getAdvertisementDetails(),"İlanlar listelendi.");
 	}
 	
 
